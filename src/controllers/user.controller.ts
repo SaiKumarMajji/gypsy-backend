@@ -32,7 +32,7 @@ export class UserController {
       </div>
       <div style="padding: 25px; color: #333333;">
         <p style="font-size: 16px; margin-bottom: 15px; color: #333333">
-          A new user has submitted their details. Below are the submitted details:
+          A new user has submitted their details:
         </p>
         <table style="width: 100%; border-collapse: collapse;">
           <tr>
@@ -66,7 +66,7 @@ export class UserController {
 `;
 
         // Send emails
-        await sendEmail(["saikumar170325@gmail.com", "hamsalekhayadav@gmail.com"], "New User Details", emailContent);
+        await sendEmail(["saikumar170325@gmail.com"], "New User Details", emailContent);
 
         return data
             ? successResponse(res, "S-10001", data)
