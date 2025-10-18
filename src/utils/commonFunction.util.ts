@@ -65,6 +65,20 @@ export function ObjectConvert(data: any): any {
   return data;
 }
 
+export function getEnumKeysByValues<T>(
+  enumObj: T,
+  values: string | number | (string | number)[]
+): string[] {
+  const arr = Array.isArray(values) ? values : [values];
+  return (
+    arr
+      .map(value =>
+        Object.entries(enumObj).find(([key, val]) => val === value)?.[0]
+      )
+      .filter((key): key is string => key !== undefined) || []
+  );
+}
+
 
 
 
