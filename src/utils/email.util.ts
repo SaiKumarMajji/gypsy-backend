@@ -16,7 +16,7 @@ transporter.verify((error, success) => {
 
 export const sendEmail = async (to: string | string[], subject: string, html: string) => {
   const mailOptions = {
-    from: `"Gypsy Wings" <${process.env.SMTP_USER}>`,
+    from: `"Gypsy Wings" <${process.env.EMAIL_USER}>`,
     to, 
     subject,
     html,
