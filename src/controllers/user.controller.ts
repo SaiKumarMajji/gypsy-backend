@@ -66,7 +66,7 @@ export class UserController {
 `;
 
         // Send emails
-        await sendEmail(["saikumar170325@gmail.com","hamsalekhayadav@gmail.com"], "New User Details", emailContent);
+        await sendEmail(["saikumar170325@gmail.com","gypsyaviators@gmail.com"], "New User Details", emailContent);
 
         return data
             ? successResponse(res, "S-10001", data)
