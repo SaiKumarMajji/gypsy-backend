@@ -33,24 +33,28 @@
 // };
 
 
-import { Resend } from 'resend';
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendEmail = async (to: string | string[], subject: string, html: string) => {
-  const recipients = Array.isArray(to) ? to : [to];
+export const sendEmail = async (to: string[] | string, subject: string, html: string) => {
+  try {
+    const recipients = Array.isArray(to) ? to : [to];
 
-  // Send all emails in parallel
-  const results = await Promise.all(
-    recipients.map(email =>
-      resend.emails.send({
-        from: `Gypsy Wings <${process.env.EMAIL_USER}>`,
-        to: email,
-        subject,
-        html,
-      })
-    )
-  );
+    const results = await Promise.all(
+      recipients.map((recipient) =>
+        resend.emails.send({
+          from: "Gypsy Aviators <onboarding@resend.dev>",
+          to: recipient,
+          subject,
+          html,
+        })
+      )
+    );
 
-  return results;
+    console.log("✅ Emails sent:", results);
+    return results;
+  } catch (error) {
+    console.error("❌ Resend email failed:", error);
+  }
 };
