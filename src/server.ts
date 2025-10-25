@@ -34,7 +34,7 @@ mongoose
 
 
 // === Keep Render alive ===
-const SELF_URL = "https://gypsy-aviators.onrender.com";
+const SELF_URL = "https://gypsy-backend.vercel.app";
 const PING_INTERVAL = 60 * 1000; // ping every 5 minutes (safe interval)
 
 const keepAlive = () => {
