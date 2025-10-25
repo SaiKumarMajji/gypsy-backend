@@ -36,7 +36,7 @@ mongoose
 
 // === Keep Render alive ===
 const SELF_URL = "https://gypsy-aviators.onrender.com";
-const PING_INTERVAL = 5 * 60 * 1000; // ping every 5 minutes (safe interval)
+const PING_INTERVAL = 60 * 1000; // ping every 5 minutes (safe interval)
 
 const keepAlive = () => {
   axios.get(SELF_URL)
