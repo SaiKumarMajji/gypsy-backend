@@ -6,6 +6,8 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  connectionTimeout: 30000, // Fail after 30s if no connection
+  socketTimeout: 30000,     // Fail after 30s if server stops responding
 });
 
 transporter.verify((error, success) => {
