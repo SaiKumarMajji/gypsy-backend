@@ -10,6 +10,10 @@ const transporter = nodemailer.createTransport({
   },
   connectionTimeout: 30000, // Fail after 30s if no connection
   socketTimeout: 30000,     // Fail after 30s if server stops responding
+  greetingTimeout: 30000,   // greeting timeout
+  tls: {
+    rejectUnauthorized: false // May help with certificate issues
+  }
 });
 
 transporter.verify((error, success) => {
