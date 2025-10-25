@@ -34,21 +34,21 @@ mongoose
 
 
 // === Keep Render alive ===
-const SELF_URL = "https://gypsy-backend.vercel.app";
-const PING_INTERVAL = 60 * 1000; // ping every 5 minutes (safe interval)
+// const SELF_URL = "https://gypsy-backend.vercel.app";
+// const PING_INTERVAL = 60 * 1000; // ping every 5 minutes (safe interval)
 
-const keepAlive = () => {
-  axios.get(SELF_URL)
-    .then(() => console.log("💡 Keep-alive ping successful"))
-    .catch((err) => console.error("⚠️ Keep-alive failed:", err.message));
-};
+// const keepAlive = () => {
+//   axios.get(SELF_URL)
+//     .then(() => console.log("💡 Keep-alive ping successful"))
+//     .catch((err) => console.error("⚠️ Keep-alive failed:", err.message));
+// };
 
-setInterval(keepAlive, PING_INTERVAL);
+// setInterval(keepAlive, PING_INTERVAL);
 
-// === Root route ===
-app.get("/", (req, res) => {
-  res.send("Server is up and running ✅");
-});
+// // === Root route ===
+// app.get("/", (req, res) => {
+//   res.send("Server is up and running ✅");
+// });
 
 
 // Server
