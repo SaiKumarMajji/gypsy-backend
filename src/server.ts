@@ -27,27 +27,17 @@ app.use("/api/v1", userDetailRoute.router)
 
 // DB Connection
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .connect(process.env.MONGO_URL || "")
+  .then(() => {
+    console.log("MongoDB connected");
 
-
-// === Keep Render alive ===
-// const SELF_URL = "https://gypsy-backend.vercel.app";
-// const PING_INTERVAL = 60 * 1000; // ping every 5 minutes (safe interval)
-
-// const keepAlive = () => {
-//   axios.get(SELF_URL)
-//     .then(() => console.log("💡 Keep-alive ping successful"))
-//     .catch((err) => console.error("⚠️ Keep-alive failed:", err.message));
-// };
-
-// setInterval(keepAlive, PING_INTERVAL);
-
-// // === Root route ===
-// app.get("/", (req, res) => {
-//   res.send("Server is up and running ✅");
-// });
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
 
 // Server
